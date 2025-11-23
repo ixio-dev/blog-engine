@@ -27,13 +27,15 @@ A local preview server enables fast iteration. Client-side features (search, nav
 ### 4.1 Visual Design
 - Minimalistic, high-contrast, typography-focused.
 - Clean layout with strong alignment and consistent spacing.
+- Images included in the blog posts are handled properly.
 - Code-friendly styling (monospace headings, syntax highlighting, dark/light themes).
 
 ### 4.2 Page Layout
 All pages share one consistent layout:
 - Fixed header with site title and navigation.
 - Content loaded via full-page transition animations to simulate a dynamic SPA.
-- Footer with simple copyright and links.
+- Images included in the blog posts are handled properly.
+- Fixed footer with simple copyright and legal notice link.
 
 ### 4.3 Blog Features
 - Blog index with chronological listing.

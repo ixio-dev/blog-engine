@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<!-- Live reload test: Template updated at 7:10 PM with template reloading fix -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{.Title}} — {{.Site.Title}}</title>
+  <meta name="description" content="{{.Description}}" />
+  <link rel="stylesheet" href="{{.BaseURL}}/assets/css/main.css{{.AssetsVersion}}" />
+  <script>
+    window.BASE_URL = {{.BaseURL | printf "%q"}};
+    window.DRAFTS_VISIBLE = {{.DraftsVisible}};  // Indicate if drafts are currently visible
+  </script>
+  <script defer src="{{.BaseURL}}/assets/js/app.js{{.AssetsVersion}}"></script>
+  <script defer src="{{.BaseURL}}/assets/js/search.js{{.AssetsVersion}}"></script>
+  {{.ExtraHead}}
+</head>
+<body class="theme-root layout-fullscreen">
+  <div id="site-frame" class="layout-container">
+    <header class="site-header">
+      <div class="brand">
+        <a href="{{.BaseURL}}/">{{.Site.Title}}</a>
+      </div>
+      <nav class="site-nav">
+        <a href="{{.BaseURL}}/">Home</a>
+        <a href="{{.BaseURL}}/tags/">Tags</a>
+        <button id="search-toggle" aria-label="Search (slash)">/</button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
+        {{if .LiveReloadScript}}<button id="draft-toggle" aria-label="Toggle drafts">📝</button>{{end}}
+      </nav>
+    </header>
+
+    <main id="content" class="content-container layout-content{{if .Post}} post-page{{end}}">
+      {{template "content" .}}
+    </main>
+
+    <footer class="site-footer layout-footer">
+      <div class="footer-content">
+        <span class="footer-text">{{.Site.Title}} — © {{.Site.Author}} {{.Year}}</span>
+        <nav class="footer-nav">
+          <a href="{{.BaseURL}}/legal/" class="footer-link">Legal Notice</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Search UI -->
+  <div id="search-ui" class="search-ui hidden" aria-hidden="true">
+    <div class="search-header">
+      <input id="search-input" placeholder="Search posts..." />
+      <button id="search-close" aria-label="Close search (ESC)">ESC</button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+
+  <!-- Live reload (preview only): injected by preview server when enabled -->
+  {{.LiveReloadScript}}
+</body>
+</html>

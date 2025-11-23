@@ -1,0 +1,15 @@
+{{define "content"}}
+<section class="tags-index">
+  <h1>All Tags</h1>
+  <div class="tags-list">
+    {{range $tag, $posts := .Tags}}
+    <div class="tag-item">
+      <a href="{{$.BaseURL}}/tags/{{slugify $tag}}/" class="tag-link">
+        <span class="tag-name">{{$tag}}</span>
+        <span class="tag-count">({{len $posts}})</span>
+      </a>
+    </div>
+    {{end}}
+  </div>
+</section>
+{{end}}

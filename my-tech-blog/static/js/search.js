@@ -2,7 +2,8 @@
 // Lightweight tokenization and substring match. Designed for a few hundred posts.
 (function () {
   'use strict';
-  const indexUrl = '/search/index.json';
+  const baseUrl = window.BASE_URL || '';
+  const indexUrl = baseUrl + '/search/index.json';
   let index = [];
   let ready = false;
 
