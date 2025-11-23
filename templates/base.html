@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ title }} — {{ site.title }}</title>
+  <meta name="description" content="{{ description|default(site.description) }}" />
+  <link rel="stylesheet" href="{{ baseUrl }}/assets/css/main.css{{ assets_version }}" />
+  <script defer src="{{ baseUrl }}/assets/js/app.js{{ assets_version }}"></script>
+  <script defer src="{{ baseUrl }}/assets/js/search.js{{ assets_version }}"></script>
+  {{ extra_head|safe }}
+</head>
+<body class="theme-root">
+  <div id="site-frame">
+    <header class="site-header">
+      <div class="brand">
+        <a href="{{ baseUrl }}/">{{ site.title }}</a>
+      </div>
+      <nav class="site-nav">
+        <a href="{{ baseUrl }}/">Home</a>
+        <a href="{{ baseUrl }}/tags/">Tags</a>
+        <button id="search-toggle" aria-label="Search (slash)">/</button>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
+      </nav>
+    </header>
+
+    <main id="content" class="content-container">
+      {{ content|safe }}
+    </main>
+
+    <footer class="site-footer">
+      <div>{{ site.title }} — © {{ site.author }} {{ year }}</div>
+    </footer>
+  </div>
+
+  <!-- Live reload (preview only): injected by preview server when enabled -->
+  {{ live_reload_script|safe }}
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="index">
+  <h1>Latest posts</h1>
+  <ul class="post-list">
+    {{ for post in posts }}
+    <li class="post-list-item">
+      <a class="post-link" href="{{ baseUrl }}/posts/{{ post.slug }}/">
+        <h2 class="post-title">{{ post.title }}</h2>
+      </a>
+      <div class="post-meta">
+        <time datetime="{{ post.date }}">{{ post.date_pretty }}</time>
+        {% if post.tags %}
+          <span class="tags">— {{ post.tags | join(", ") }}</span>
+        {% endif %}
+      </div>
+      <p class="post-summary">{{ post.summary }}</p>
+    </li>
+    {{ endfor }}
+  </ul>
+
+  <!-- Pagination if needed -->
+  {{ pagination|safe }}
+</section>
+{% endblock %}
