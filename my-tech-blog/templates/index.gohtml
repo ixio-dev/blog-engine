@@ -1,0 +1,24 @@
+{{define "content"}}
+<section class="index">
+  <h1>Latest posts</h1>
+  <ul class="post-list">
+    {{range .Posts}}
+    <li class="post-list-item">
+      <a class="post-link" href="{{$.BaseURL}}/posts/{{.Slug}}/">
+        <h2 class="post-title">{{.Title}}</h2>
+      </a>
+      <div class="post-meta">
+        <time datetime="{{.Date}}">{{.DatePretty}}</time>
+        {{if .Tags}}
+          <span class="tags">— {{joinStrings .Tags ", "}}</span>
+        {{end}}
+      </div>
+      <p class="post-summary">{{.Summary}}</p>
+    </li>
+    {{end}}
+  </ul>
+
+  <!-- Pagination if needed -->
+  {{.Pagination}}
+</section>
+{{end}}

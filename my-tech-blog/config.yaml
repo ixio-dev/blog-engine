@@ -1,0 +1,15 @@
+site:
+  title: "My Tech Blog"
+  baseUrl: "https://www.example.com"
+  author: "scio"
+
+build:
+  outputDir: "./dist"
+  drafts: false
+
+server:
+  port: 4000
+
+deploy:
+  host: "user@example.com:22"
+  path: "/var/www/blog"
